@@ -1,4 +1,16 @@
-//DETAILS PAGE JAVASCRIPT
+
+// HAMBURGER MENU
+
+document.getElementById("menu-toggle").addEventListener("click", function() {
+    document.getElementById("menu").classList.toggle("active");
+})
+
+document.getElementById("close-menu").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("active");
+})
+
+
+// DETAILS PAGE JAVASCRIPT
 
 var textInURL = window.location.search;
 var parametersInURL = new URLSearchParams(textInURL);

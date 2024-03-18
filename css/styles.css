@@ -5,7 +5,6 @@
 
 :root {
     --page-headers: 2rem;
-    --section-headers: 1.5rem;
     --subheading: 1.25rem;
     --body-text: 1rem; 
     --nav-background: rgb(74, 42, 42);
@@ -118,7 +117,7 @@ nav a:hover {
     text-align: right;
 }
 
-.hero-text h2, .gluten-free-cupcakes h2 {
+.hero-text h2  {
     font-size: var(--page-headers);
     font-family: Satisfy, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode'; 
 }
@@ -144,7 +143,7 @@ nav a:hover {
     color: var(--main-button);
 }
 
-/* SPECIALTY CUPCAKES ----------------------------------------------- */
+/* -------------------------------- OUR SPECIALTY CUPCAKES ----------------------------------------------- */
 
 #all-products h1 {
     text-align: center;
@@ -182,37 +181,6 @@ nav a:hover {
     box-shadow: var(--box-shadow); 
 }
 
-
-/* GALLERY SECTION ----------------------------------------------
-
-.gallery, .product-gallery {
-    margin-top: 1rem; 
-}
-
-.gallery h3, p, .product-gallery h3 {
-    text-align: center;
-}
-
-.gallery-contents, .gluten-gallery-contents {
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    column-gap: 1rem; 
-    row-gap: 1rem; 
-    justify-content: center;
-    max-width: 70rem;
-    margin: auto;   
-    margin-top: 1rem; 
-    background-color: var(--images-background);
-    padding: 1rem; 
-    border-radius: 0.625rem 0.625rem 0 0;
-    box-shadow: var(--box-shadow);
-}
-
-.gallery-contents img, .gluten-gallery-contents img {
-    max-width: 20rem;
-    width: 100%; 
-    border-radius: 0.3rem;   
-}
 
 /* FOOTER ---------------------------------------------------------------------------------- */
 
@@ -273,12 +241,13 @@ footer p {
 
 /* --------------------- CUPCAKE DETAILS PAGE --------------------------------------------------------------------- */
 
-#cupcake-header {
+#cupcake-title {
     background-color: var(--images-background);
     max-width: 80%; 
     margin: auto; 
 }
-#cupcake-header h1 {
+
+#cupcake-title h1 {
     text-align: center;
     padding: 1rem; 
     font-size: var(--page-headers); 
@@ -297,13 +266,17 @@ footer p {
     box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2), 0 0.375rem 1.25rem 0 rgba(0, 0, 0, 0.19);
 }
 
-#product-details p, h3 {
+#product-details p, h3, h4 {
     text-align: left;
     padding: 1rem 0 0 1rem; 
 }
 
+#product-details ul {
+    padding: 0 0 1rem 3rem; 
+}
 
-/* Drop Downs */
+
+/* Drop Down Menu & Button */
 
 select {
     padding: 0.5rem; 
@@ -317,7 +290,21 @@ select {
     cursor: pointer;
 }
 
-/* About Page */ 
+button {
+    padding: 0.625rem; 
+    margin-top: 0.625rem;
+    border-radius: 2rem;
+    background-color: var(--nav-background); 
+    color: var(--nav-button-type); 
+    font-size: 1rem;
+    text-transform: uppercase; 
+}
+
+button:hover {
+    color: var(--main-button);
+}
+
+/* ----------------------------  ABOUT PAGE  --------------------------------- */ 
 
 .about-hero {
     background-image: url(../images/about-hero.jpg);
@@ -337,19 +324,46 @@ select {
     padding-left: 1rem; 
 }
 
+.about-us-section {
+    background-color: var(--images-background);  
+}
+
+.about-us {
+    display: flex;
+    margin: auto; 
+    padding: 1rem; 
+}
+
+.about-us img {
+    border-radius: 1rem; 
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2), 0 0.375rem 1.25rem 0 rgba(0, 0, 0, 0.19);
+}
+
+.about-us p {
+    text-align: left;
+    padding: 0.625rem 0 0.625rem 0; 
+}
+
+.about-us div {
+    padding: 1rem; 
+}
+
+
+
+
+
+
 /* --------------------- MEDIA QUERIES -----------------------------------------------------------------------*/
 
 /* Smaller Screens - 1200px */
 @media screen and (max-width: 75em) {
 
-    :root {
-        --h4: 1.35rem;
-    }
-
     /* BODY */
 
-    .wrapper {
-        width: 100%; 
+    #all-products,
+    #cupcake-title,
+    #product-details {
+        max-width: 100%; 
     }
 
 }
@@ -358,18 +372,8 @@ select {
 
 @media screen and (max-width: 64em) {
 
-    :root {
-        --h4: 1.2rem; 
-    }
 
-    /* PRODUCTS & ABOUT */
-    .gluten-free-cupcakes img {
-        max-width: 15rem; 
-    }
-    
-    .gluten-free-cupcakes p {
-        padding-top: 0.5rem;  
-    }
+    /* ABOUT */
 
     .about-us {
         flex-direction: column;  
@@ -379,6 +383,7 @@ select {
      .about-us img{
         max-width: 100%; 
      }
+
 }
 
 /* Tablet - 768px */
@@ -386,8 +391,6 @@ select {
 
     :root {
         --page-headers: 2.2rem;
-        --section-headers: 1.75rem;
-        --h4: 1.125rem;
         --body-text: 1rem; 
     }
 
@@ -417,49 +420,29 @@ select {
     }
 
     /* SPECIALTY CUPCAKES */
-    .specialty-cupcakes-images {
+
+    #products {
         grid-template-columns: 1fr 1fr;
     }
 
-    /* GALLERY */
+    /* DETAILS PAGE */
 
-    .gallery h3 {
-        padding-top: 2rem; 
+    #product-details {
+        flex-direction: column; 
     }
-    .gallery-contents {
-        max-width: 100%;  
+
+    #product-image {
+        margin: auto; 
     }
+
 }
 
 /* Large Mobile - 600px */
 @media screen and (max-width: 37.5em) {
 
-    /* PRODUCTS */
-
-    .gluten-header-1 {
-        display: block;
-        text-align: center; 
-        padding-top: 1rem;
-    }
-
-    .gluten-header-2 {
-        display: none; 
-    }
-
-    .gluten-free-cupcakes {
-        flex-direction: column;  
-        align-items: center; 
-        text-align: center; 
-    }
-
-    .gluten-free-cupcakes img {
-        max-width: 100%; 
-    }
-   
-    .gluten-gallery-contents {
-        grid-template-columns: 1fr 1fr 1fr; 
-    }
-
+#product-image img {
+    max-width: 100%; 
+}
     /* FOOTER */
 
     footer { 
@@ -492,8 +475,6 @@ select {
 
     :root {
         --page-headers: 2rem;
-        --section-headers: 1.5rem;
-        --h4: 1.0625rem;
     }
 
     /* HERO */
@@ -529,14 +510,9 @@ select {
 
     /* SPECIALTY CUPCAKES */
 
-    .specialty-cupcakes-images {
+    #products {
         grid-template-columns: 1fr; 
     }
 
-    /* GALLERY */
-
-    .gallery-contents, .gluten-gallery-contents {
-        grid-template-columns: 1fr 1fr; 
-    }
 
 }
